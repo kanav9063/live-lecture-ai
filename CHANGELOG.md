@@ -7,10 +7,12 @@
 - **Profile Intelligence Engine**: Introduced core JD awareness and deep Resume context. The AI now actively understands your exact career history and dynamically adapts to the specific job description you are interviewing for.
 - **Profile Engine UI Overhaul**: Radically redesigned the premium Profile Engine UI with a mature, Apple-like minimalist aesthetic, complete with premium motion and glassmorphism.
 
-### Intelligence & Core Upgrades
+### 🧠 Intelligence & Core Upgrades
 
 - **Live Meeting RAG Integration**: Added deep Retrieval-Augmented Generation directly into live meetings. It instantly pulls facts and context from your current and past history as the meeting unfolds.
 - **Next-Gen Windows Audio Capture**: Re-engineered system audio selection for Windows, resolving longstanding WASAPI compatibility issues for flawlessly reliable zero-drop transcriptions.
+- **Soniox Speech Support**: Added the Soniox speech provider for high-accuracy, low-latency transcriptions.
+- **Customizable Language Features**: Introduced custom AI response languages and speech languages, greatly enhancing multi-lingual support.
 - **Apple Premium Dark Code Blocks**: Code snippets in the UI now render with a sleek Apple Premium Dark aesthetic, preserving critical whitespace for language-less and inline blocks.
 - **Markdown Rendering**: Improved readability and stability across chat output via strict syntax highlighting.
 

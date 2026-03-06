@@ -75,7 +75,7 @@ const App: React.FC = () => {
         outputDeviceId = "sck";
       } else if (!isMac) {
         console.log("[App] Using WASAPI loopback backend (Windows).");
-        outputDeviceId = null; // null = default render device loopback in Rust
+        outputDeviceId = "loopback-auto"; // Specifically request system audio capture
       } else {
         console.log("[App] Using Legacy CoreAudio backend (User Preference).");
       }

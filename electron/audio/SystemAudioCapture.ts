@@ -10,7 +10,7 @@ try {
     console.error('[SystemAudioCapture] Failed to load native module:', e);
 }
 
-const { SystemAudioCapture: RustAudioCapture } = NativeModule || {};
+const { SystemAudioCapture: RustAudioCapture, get_output_devices } = NativeModule || {};
 
 export class SystemAudioCapture extends EventEmitter {
     private monitor: any = null;
@@ -52,8 +52,36 @@ export class SystemAudioCapture extends EventEmitter {
         // This prevents the 1-second audio mute + quality drop at app launch
         if (!this.monitor) {
             console.log('[SystemAudioCapture] Creating native monitor (lazy init)...');
+            
+            let finalDeviceId = this.deviceId;
+            
+            // If we're looking for system audio on Windows, find the loopback device
+            if (finalDeviceId === 'loopback-auto' && get_output_devices) {
+                try {
+                    const devices = get_output_devices();
+                    console.log('[SystemAudioCapture] Available output devices:', devices);
+                    const loopbackDevice = devices.find((d: any) => 
+                        d.name.toLowerCase().includes('loopback') || 
+                        d.name.toLowerCase().includes('stereo mix')
+                    );
+                    
+                    if (loopbackDevice) {
+                        console.log(`[SystemAudioCapture] Found loopback device: ${loopbackDevice.name} (${loopbackDevice.id})`);
+                        finalDeviceId = loopbackDevice.id;
+                    } else {
+                        console.warn('[SystemAudioCapture] No loopback/stereo mix device found, falling back to default');
+                        finalDeviceId = null; 
+                    }
+                } catch (e) {
+                    console.error('[SystemAudioCapture] Error enumerating devices:', e);
+                    finalDeviceId = null;
+                }
+            } else if (finalDeviceId === 'loopback-auto') {
+                 finalDeviceId = null;
+            }
+
             try {
-                this.monitor = new RustAudioCapture(this.deviceId);
+                this.monitor = new RustAudioCapture(finalDeviceId);
             } catch (e) {
                 console.error('[SystemAudioCapture] Failed to create native monitor:', e);
                 this.emit('error', e);

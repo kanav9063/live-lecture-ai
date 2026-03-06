@@ -72,10 +72,10 @@ _The privacy-first AI assistant for meetings._
 </p>
 
 <p align="center">
-  <a href="https://github.com/evinjohnn/natively-cluely-ai-assistant/releases/latest">
+  <a href="https://github.com/evinjohnn/natively-cluely-ai-assistant/releases/tag/v2.0.1">
     <img src="https://img.shields.io/badge/Download-macOS-000000?style=for-the-badge&logo=apple&logoColor=white" />
   </a>
-  <a href="https://github.com/evinjohnn/natively-cluely-ai-assistant/releases/latest">
+  <a href="https://github.com/evinjohnn/natively-cluely-ai-assistant/releases/tag/v2.0.1">
     <img src="https://img.shields.io/badge/Download-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white" />
   </a>
 </p>
@@ -219,6 +219,7 @@ Connect **any** speech provider and **any** LLM. No subscriptions, no markups, n
 - **ElevenLabs** (API Key)
 - **Azure Speech Services** (API Key + Region)
 - **IBM Watson** (API Key + Region)
+- **Soniox** (API Key)
 
 ### AI Engine Support (Bring Your Own Key)
 
