@@ -914,6 +914,7 @@ const SettingsOverlay: React.FC<SettingsOverlayProps> = ({ isOpen, onClose }) =>
                                     <button
                                         onClick={() => {
                                             setActiveTab('profile');
+                                            analytics.trackProfileIntelligenceView(false); // Tracking profile settings view
                                             // Load profile status when switching to this tab
                                             window.electronAPI?.profileGetStatus?.().then(setProfileStatus).catch(() => { });
                                             window.electronAPI?.profileGetProfile?.().then(setProfileData).catch(() => { });

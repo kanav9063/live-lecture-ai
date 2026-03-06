@@ -29,7 +29,13 @@ export type AnalyticsEventName =
     | 'session_duration'
     // Engagement
     | 'command_executed'
-    | 'conversation_started';
+    | 'conversation_started'
+    // Monetization & Premium Features
+    | 'profile_intelligence_view'
+    | 'purchase_license_click'
+    | 'ads_toaster_interest'
+    | 'ads_toaster_shown'
+    | 'license_key_entered';
 
 interface ModelUsedPayload {
     model_name: string;
@@ -234,6 +240,36 @@ class AnalyticsService {
         };
 
         this.trackEvent('session_duration', payload);
+    }
+
+    // --- Premium & Monetization Tracking ---
+
+    public trackProfileIntelligenceView(isLocked: boolean): void {
+        if (!this.initialized) return;
+        this.trackEvent('profile_intelligence_view', { is_locked: isLocked });
+    }
+
+    public trackPurchaseLicenseClick(): void {
+        if (!this.initialized) return;
+        this.trackEvent('purchase_license_click');
+    }
+
+    public trackAdsToasterShown(): void {
+        if (!this.initialized) return;
+        // Tracking impression of the promo toaster
+        this.trackEvent('ads_toaster_shown');
+    }
+
+    public trackAdsToasterInterest(): void {
+        if (!this.initialized) return;
+        // Tracking click on 'Claim the Advantage'
+        this.trackEvent('ads_toaster_interest');
+    }
+
+    public trackLicenseKeyEntered(): void {
+        if (!this.initialized) return;
+        // Signifies successful $5 payment equivalent
+        this.trackEvent('license_key_entered', { value: 5.00, currency: 'USD' });
     }
 
     // --- Core Event Sender ---

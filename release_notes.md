@@ -1,29 +1,31 @@
 ## Summary
 
-v2.0.1 - The Intelligence & Stability Update, combining the massive feature drops of v2.0.0 and v2.0.1 into one stable package.
+The Intelligence & Stability Update, bringing Live RAG, Soniox support, and a completely overhauled UI.
 
 ## What's New
 
-- **Profile Intelligence Engine (v2.0.0)**: Introduced core JD awareness and deep Resume context. The AI dynamically adapts to the specific job description you are interviewing for.
-- **Live Meeting RAG Integration**: Deep Retrieval-Augmented Generation directly into live meetings, pulling facts and context from your current and past history as the meeting unfolds.
-- **Next-Gen Windows Audio Capture**: Re-engineered system audio selection for Windows, resolving WASAPI compatibility issues.
-- **Soniox Speech Support**: Added the Soniox speech provider for high-accuracy, low-latency transcriptions.
-- **Customizable Language Features**: Introduced custom AI response languages and speech languages.
+- Live Meeting RAG Integration for instantly pulling facts from past meetings.
+- Soniox speech provider for high-accuracy, low-latency transcriptions.
+- Customizable AI response languages and speech languages.
 
 ## Improvements
 
-- **Profile Engine UI Overhaul**: Radically redesigned the premium Profile Engine UI with a mature, Apple-like minimalist aesthetic, motion, and glassmorphism.
-- **Apple Premium Dark Code Blocks**: Code snippets in the UI now render with a sleek Apple Premium Dark aesthetic, preserving critical whitespace.
-- **Markdown Rendering**: Improved readability and stability across chat output via strict syntax highlighting.
+- Radically redesigned Profile Engine UI with a mature Apple-like minimalist aesthetic and glassmorphism.
+- Introduced Apple Premium Dark aesthetic for code blocks to preserve critical whitespace.
+- Re-engineered Windows audio capture resolving WASAPI compatibility issues.
+- Improved Markdown readability and stability across chat output via strict syntax highlighting.
 
 ## Fixes
 
-- **Comprehensive Bug Fixes**: Resolved critical SQLite embedding indexing constraint errors, fixed ad-dismissal cooldowns, and handled dependency conflicts.
-- **Production Enhancements**: Fixed Native module compilation and packaging for smoother application delivery, alongside adding correct Windows build icons.
+- Resolved critical SQLite embedding indexing constraint errors.
+- Fixed ad-dismissal cooldowns to properly track hidden states.
+- Handled React dependency conflicts related to async-storage.
+- Fixed Native module compilation and packaging for smoother delivery on Windows.
 
 ## Technical
 
-- **Merged PR Integrations**: Successfully merged 3 major pull requests, streamlining repository contributions.
+- Merged 3 major PRs streamlining repository contributions.
+- Added correct Windows build icons.
 
 ## ⚠️macOS Installation (Unsigned Build)
 
@@ -38,7 +40,7 @@ If you see "App is damaged":
 - **For .dmg downloads:**
   1. Open Terminal and run:
      ```bash
-     xattr -cr ~/Downloads/Natively-1.1.8-arm64.dmg
+     xattr -cr ~/Downloads/Natively-2.0.1-arm64.dmg
      ```
   2. Install the natively.dmg
   3. Open Terminal and run: `xattr -cr /Applications/Natively.app`
